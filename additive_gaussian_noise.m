@@ -1,4 +1,4 @@
-function image_with_noise = additive_gaussian_noise(img, std_fraction)
+function image_with_noise = additive_gaussian_noise(img, std_fraction) 
   pkg load communications;
   
   image_arr_length = length(img(:));
