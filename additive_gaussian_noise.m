@@ -17,11 +17,6 @@ function image_with_noise = additive_gaussian_noise(img, std_fraction)
   
   standart_deviation *= std_fraction;
   
-  #noise = [];
-  #for i=1:image_arr_length
-  #  noise(i) = (e ** -((randint(1, 1, [0, 255]) - mean) ** 2) / 2 * (standart_deviation ** 2)) / (standart_deviation * sqrt(2 * pi));
-  #endfor
-  
   noise = [];
   for i=1:image_arr_length
     r = rand(1);
@@ -29,8 +24,6 @@ function image_with_noise = additive_gaussian_noise(img, std_fraction)
     z = sqrt(-2 * log(r)) * sin(2 * pi * fi);
     noise(i) = mean + z * standart_deviation;
   endfor
-  
-  #noise = wgn(1, image_arr_length, 20);
 
   image_with_noise = [];
   for i=1:image_arr_length
