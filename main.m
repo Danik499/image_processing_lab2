@@ -1,4 +1,4 @@
-img = imread('./Lake.png');
+img = imread('./Boat.png');
 
 [minimum, maximum, mean, standart_deviation, variance, snr] = image_statistical_analysis(img);
 

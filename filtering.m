@@ -7,11 +7,19 @@ function filtered_image = filtering(img, kernel)
   columns = size(img)(1);
   rows = size(img)(2);
   
+  if kernel_size == 3
+    additional_pixels = 1;
+  elseif kernel_size == 5
+    additional_pixels = 2;
+  elseif kernel_size == 7
+    additional_pixels = 3
+  endif
+  
   filtered_image = [];
   
-  for i=2:rows+1
-    for j=2:columns+1
-      m = extended_image(i-1:i+1, j-1:j+1);
+  for i=additional_pixels + 1:rows + additional_pixels
+    for j=additional_pixels + 1:columns + additional_pixels
+      m = extended_image(i-additional_pixels:i+additional_pixels, j-additional_pixels:j+additional_pixels);
       pixel = sum(sum(flipped_kernel .* m));
       
       filtered_image(end+1) = pixel;
